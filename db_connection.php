@@ -2,7 +2,7 @@
 
 const DB_HOST = 'mysql:host=localhost;dbname=ToDo;charset=utf-8';
 const DB_USER = 'ToDo';
-const DB_PSSWORD ='公開されていないかテスト';//データベースを作成後、パスワードを入れる。
+const DB_PSSWORD ='公開されていないかテスト1';//データベースを作成後、パスワードを入れる。
 
 try{
     $pdo = new PDO(DB_HOST, DB_USER, DB_PASSWORD,[

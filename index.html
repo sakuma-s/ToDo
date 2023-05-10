@@ -7,18 +7,16 @@
     <title>ToDo</title>
     <link rel="stylesheet" href="css/style.css">
   </head>
-
   <body>
     <div class="container">
       <header>
         <h1>todolist</h1>
       </header>
-      <form method = "POST" action="index.html">
+      <form method = "post" action="index.html">
       <label for="todolist">今日</label>
       <textarea id="todolist" type="text" name="todolist" cols="40">
       </textarea>
       <p><input type="submit" name="btn_record" value="登録する"></p>
-
       </form>
     </div>
     <script>
@@ -26,7 +24,8 @@
       var todayHtml = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
       document.write('<p class="date">' + todayHtml + '</p>');
     </script>
-
+    <div>
+    </div>
   </body>
 
 </html>

@@ -1,3 +1,10 @@
+<?php
+header('X-FRAME-OPTIONS:DENY');
+require 'db_connection.php';
+function h($str) {
+  return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -17,9 +24,9 @@
       <textarea id="todolist" type="text" name="todolist" cols="40">
       </textarea>
       <p><input type="submit" name="btn_record" value="登録する"></p>
+      <input type="hidden" name="todolist"
+      value="<?php echo h($_POST['todolist']); ?>">
       </form>
-      <?php echo $_POST['todolist']?>
-
     </div>
     <!-- <script>
       var today = new Date();

@@ -5,7 +5,7 @@ $sql = 'SELECT * FROM list WHERE id=:id';
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
+$row = $stmt->fetch(PDO::FETCH_ASSOC);//結果の取得
 ?>
 <!DOCTYPE html>
 <html lang="ja">

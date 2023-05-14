@@ -20,6 +20,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         <label for="todolist">今日</label>
         <textarea id="todolist" type="text" name="todolist" cols="40"><?php echo htmlspecialchars($row['todolist']); ?></textarea>
         <p><input type="submit" name="btn_update" value="更新する"></p>
+        <a href="index.php">戻る</a>
     </form>
 </body>
 </html>

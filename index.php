@@ -4,6 +4,7 @@ require 'db_connection.php';
 function h($str) {
   return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -24,10 +25,16 @@ function h($str) {
       <textarea id="todolist" type="text" name="todolist" cols="40">
       </textarea>
       <p><input type="submit" name="btn_record" value="登録する"></p>
-      <input type="hidden" name="todolist"
-      value="<?php echo h($_POST['todolist']); ?>">
       </form>
     </div>
+    <table>
+      <?php $results = $stmt->fetchAll(); ?>
+      <?php foreach ($results as $row) : ?>
+      <tr>
+        <tb><?php echo h($row['todolist']) . "<br>"; ?></tb>
+      </tr>
+        <?php endforeach; ?>
+      </table>
     <!-- <script>
       var today = new Date();
       var todayHtml = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();

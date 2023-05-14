@@ -33,6 +33,12 @@ function h($str) {
       <tr>
         <tb><?php echo h($row['todolist']) . "<br>"; ?></tb>
       </tr>
+      <tr>
+      <form action="" method="post">
+      <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+      <input type="submit" name="delete" value="削除">
+      </form>
+      </tr>
         <?php endforeach; ?>
       </table>
     <!-- <script>

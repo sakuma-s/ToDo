@@ -32,6 +32,7 @@ function h($str) {
       <?php foreach ($results as $row) : ?>
       <tr>
         <tb><?php echo h($row['todolist']) . "<br>"; ?></tb>
+        <tb><a href="edit.php?id=<?php echo h($row['id']); ?>">編集</a></tb>
       </tr>
       <tr>
       <form action="" method="post">

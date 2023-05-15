@@ -12,7 +12,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);//結果の取得
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1 a.0">
-    <title>Document</title>
+    <title>ToDo</title>
 </head>
 <body>
     <form action="update.php" method="post">

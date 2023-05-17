@@ -1,10 +1,10 @@
 <?php
 header('X-FRAME-OPTIONS:DENY');
+$total_pages = "";
 require 'db_connection.php';
 function h($str) {
   return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -25,7 +25,6 @@ function h($str) {
       <textarea id="todolist" type="text" name="todolist" cols="40">
       </textarea>
       <p><input type="submit" name="btn_record" value="登録する"></p>
-      </form>
     </div>
     <table>
       <?php $results = $stmt->fetchAll(); ?>
@@ -35,11 +34,10 @@ function h($str) {
         <tb><a href="edit.php?id=<?php echo h($row['id']); ?>">編集</a></tb>
       </tr>
       <tr>
-      <form action="" method="post">
       <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
       <input type="submit" name="delete" value="削除">
-      </form>
       </tr>
+      </form>
         <?php endforeach; ?>
       </table>
     <!-- <script>

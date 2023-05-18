@@ -11,24 +11,29 @@ if (isset($_GET['page'])) {
 } else {
   $page = 1;
 }
-var_dump($page);
-//スタート
+//スタート地点の数を作成
 if($page > 1) {
-  $start = ($page * 5) - 5;
+  $start = ($page * 5) - 5;// 例：２ページ目の場合は、『(2 × 5) - 5 = 5』
 } else {
   $start = 0;
 }
 
-$stmt = $pdo->prepare("SELECT * FROM list ORDER BY id DESC LIMIT 0,5");
+$stmt = $pdo->prepare("SELECT * FROM list ORDER BY id DESC LIMIT {$start},5");
+// var_dump($start);
 $stmt->execute();
 
 if (!$stmt) {
   die($pdo->$error);
 }
-// $page = filter_input(INPUT_GET, 'page',FILTER_SANITIZE_NUMBER_INT);
-// $start = ($page - 1) * 5;
-// //データの取得
-// $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+//テーブルのデータ件数取得
+$page_num = $pdo->prepare("SELECT COUNT(*) id FROM list");
+$page_num->execute();
+$page_num = $page_num->fetchColumn();
+// var_dump($page_num);
+
+// ページネーションの数を取得する
+$pagination = ceil($page_num / 5);
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -51,7 +56,7 @@ if (!$stmt) {
       <p><input type="submit" name="btn_record" value="登録する"></p>
     </div>
       <table>
-        <?php $results = $stmt->fetchAll(); ?>
+      <?php $results = $stmt->fetchAll(); ?>
         <?php foreach ($results as $row) : ?>
         <tr>
           <tb><?php echo h($row['todolist']) . "<br>"; ?></tb>
@@ -64,7 +69,9 @@ if (!$stmt) {
         </form>
         <?php endforeach; ?>
         </table>
-
+        <?php for ($i=1; $i <= $pagination ; $i++) :?>
+	      <a href="?page=<?php echo $i ?>"><?php echo $i; ?></a>
+        <?php endfor; ?>
     <!-- <script>
       var today = new Date();
       var todayHtml = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();

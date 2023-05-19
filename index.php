@@ -51,8 +51,7 @@ $pagination = ceil($page_num / 5);
       </header>
       <form action="" method = "post">
       <label for="todolist">今日</label>
-      <textarea id="todolist" type="text" name="todolist" cols="40">
-      </textarea>
+      <textarea id="todolist" type="text" name="todolist" cols="40"></textarea>
       <p><input type="submit" name="btn_record" value="登録する"></p>
     </div>
       <table>

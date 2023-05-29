@@ -42,17 +42,8 @@ input {
   border: solid #2229e9 10px;
   background-color: rgb(230, 96, 205);
 }
-/* button {
-  width: 100%;
-  background-color: #4fa6e9;
-  color: #0d0c0c;
-  border: .8mm ridge #67d3f4;
-  padding: 3px;
-  border-radius: 3px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, .4);
-} */
 
 
-.date {
+/* .date {
   float: right;
 }

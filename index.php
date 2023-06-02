@@ -57,14 +57,10 @@ $pagination = ceil($page_num / 5);
       <table>
       <?php $results = $stmt->fetchAll(); ?>
         <?php foreach ($results as $row) : ?>
-        <tr>
-          <tb><?php echo h($row['todolist']) . "<br>"; ?></tb>
-          <tb><a href="edit.php?id=<?php echo h($row['id']); ?>">編集</a></tb>
-        </tr>
-        <tr>
+          <?php echo h($row['todolist']) . "<br>"; ?>
+          <a href="edit.php?id=<?php echo h($row['id']); ?>">編集</a>
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
         <input type="submit" name="delete" value="削除">
-        </tr>
         </form>
         <?php endforeach; ?>
         </table>

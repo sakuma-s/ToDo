@@ -33,7 +33,6 @@ $page_num = $page_num->fetchColumn();
 
 // ページネーションの数を取得する
 $pagination = ceil($page_num / 5);
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -49,17 +48,19 @@ $pagination = ceil($page_num / 5);
       <header>
         <h1>todolist</h1>
       </header>
-      <form action="" method = "post">
+      <form action="index.php" method="post">
       <label for="todolist">今日</label>
       <textarea id="todolist" type="text" name="todolist" cols="40"></textarea>
       <p><input type="submit" name="btn_record" value="登録する"></p>
+      </form>
     </div>
       <table>
+        <form action="index.php" method="post">
       <?php $results = $stmt->fetchAll(); ?>
         <?php foreach ($results as $row) : ?>
           <?php echo h($row['todolist']) . "<br>"; ?>
           <a href="edit.php?id=<?php echo h($row['id']); ?>">編集</a>
-        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+        <input type="hidden" name="delete" value="<?php echo $row['id']; ?>">
         <input type="submit" name="delete" value="削除">
         </form>
         <?php endforeach; ?>
@@ -72,8 +73,6 @@ $pagination = ceil($page_num / 5);
       var todayHtml = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
       document.write('<p class="date">' + todayHtml + '</p>');
     </script> -->
-    <div>
-    </div>
   </body>
 
 </html>

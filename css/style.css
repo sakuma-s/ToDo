@@ -42,4 +42,10 @@ input {
   border: solid #c9cae4 .8px;
   border-radius: 5px;
   background-color: rgb(153, 181, 231);
+  }
+a:hover {
+  background-color:rgb(140, 128, 233);
+}
+input:hover{
+  background-color: rgb(246, 242, 242);
 }
